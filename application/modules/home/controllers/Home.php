@@ -24,10 +24,10 @@ class Home extends Public_Controller
 		$data['title_menu'] = 'Dashboard';
 
 		$content['day_off'] 			= $this->dayOff() ?? [];
-		// cetak_r($content, 1);
-		$content['karyawan_tetap']		= $this->getKaryawanTetap();
-		$content['karyawan_kontrak']	= $this->getKaryawanKontrak();
-		
+
+		$content['karyawan_tetap']   	= $this->getKaryawanTetap() ?? [];
+		$content['karyawan_kontrak']	= $this->getKaryawanKontrak() ?? [];
+
 		$content['formDashboardDirut'] = null;
 		if ( hakAksesKhusus('dashboard_dirut') ) {
 			$content['formDashboardDirut'] = $this->formDashboardDirut();
