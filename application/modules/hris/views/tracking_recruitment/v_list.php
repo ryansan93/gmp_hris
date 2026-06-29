@@ -206,51 +206,60 @@
 
 </style>
 
-<?php foreach($list as $l){ ?>
-    <div class="tracking-card">
+<?php if( count($list) > 1 ) {?>
 
-        <div class="tracking-header">
-            <?php echo $l['document'] ?>
+    <?php foreach($list as $l){ ?>
+        <div class="tracking-card">
+
+            <div class="tracking-header">
+                <?php echo $l['document'] ?>
+            </div>
+
+            <div class="tracking-body">
+                <div class="tracking-group">
+                    <div class="tracking-icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="tracking-item">
+                        <strong>Nama Pengusul</strong>
+                        <span><?php echo ucwords( strtolower($l['nama_pengusul']) ) ?></span>
+                    </div>
+                </div>
+
+                <div class="tracking-group">
+                    <div class="tracking-icon">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    </div>
+                    <div class="tracking-item">
+                        <strong>Posisi yang Dibutuhkan</strong>
+                        <span><?php echo $l['nama_jabatan'] ?></span>
+                    </div>
+                </div>
+
+                <div class="tracking-group">
+                    <div class="tracking-icon">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div class="tracking-item">
+                        <strong>Jumlah</strong>
+                        <span><?php echo $l['jumlah'] . ' Orang' ?></span>
+                    </div>
+                </div>
+
+                <div class="tracking-action">
+                    <button document="<?php echo $l['document'] ?>" class="btn btn-primary" onclick="tr.show_tracking(this,event)">
+                        <i class="fa fa-file" style="margin-right:5px;"></i> Lihat Tracking                     
+                    </button>
+                </div>
+
+            </div>
+
         </div>
+    <?php } ?>
 
-        <div class="tracking-body">
-            <div class="tracking-group">
-                <div class="tracking-icon">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </div>
-                <div class="tracking-item">
-                    <strong>Nama Pengusul</strong>
-                    <span><?php echo ucwords( strtolower($l['nama_pengusul']) ) ?></span>
-                </div>
-            </div>
+<?php } else { ?>
 
-            <div class="tracking-group">
-                <div class="tracking-icon">
-                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                </div>
-                <div class="tracking-item">
-                    <strong>Posisi yang Dibutuhkan</strong>
-                    <span><?php echo $l['nama_jabatan'] ?></span>
-                </div>
-            </div>
+    <i style="width:100%;">Tidak ada data</i>
 
-            <div class="tracking-group">
-                <div class="tracking-icon">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                </div>
-                <div class="tracking-item">
-                    <strong>Jumlah</strong>
-                    <span><?php echo $l['jumlah'] . ' Orang' ?></span>
-                </div>
-            </div>
-
-            <div class="tracking-action">
-                <button document="<?php echo $l['document'] ?>" class="btn btn-primary" onclick="tr.show_tracking(this,event)">
-                    <i class="fa fa-file" style="margin-right:5px;"></i> Lihat Tracking                     
-                </button>
-            </div>
-
-        </div>
-
-    </div>
 <?php } ?>
+
