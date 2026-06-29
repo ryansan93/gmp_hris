@@ -9,6 +9,9 @@ let hf ={
             <div style="display:flex; flex-direction:row; gap:10px; align-items:center;">
                 <label style="width:10%;">Nama Kategori</label>
                 <input type="text" class="form form-control nama_kategori" style="width:40%;">
+
+                <label style="width:10%;">Durasi</label>
+                <input type="number" class="form form-control durasi" placeholder="Bulan" style="width:10%;">
                 
                 <div style="width:40%; text-align:right">
                     <button class="btn btn-warning" onclick="hf.add_row(this, event);"><span class="fa fa-plus"></span></button>
