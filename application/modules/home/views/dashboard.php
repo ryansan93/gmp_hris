@@ -148,7 +148,7 @@
 			</div>
 
 			<div class="card dashboard-card" onclick="window.location.href='parameter/Karyawan?getdata=1'">
-				<div class="card-body d-flex justify-content-between align-items-center">
+				<div class="card-body d-flex justify-content-between align-items-center"> 
 					<div>
 						<div class="title">Karyawan Tetap</div>
 						<div class="value"><?php echo count($karyawan_tetap) ?></div>
@@ -192,4 +192,5 @@
 				Tidak ada notifikasi.
 			</div>
 		</fieldset>
+	</div>
 </div>

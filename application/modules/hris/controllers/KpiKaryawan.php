@@ -240,7 +240,7 @@ class KpiKaryawan extends Public_Controller
         
         $params = $_POST;
 
-		// cetak_r($params, 1);
+		cetak_r($params, 1);
         
         try {
             $m_header     			  	= new \Model\Storage\HrisKpiPenilaian_model();
