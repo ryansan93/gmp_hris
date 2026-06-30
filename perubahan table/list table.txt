@@ -1,0 +1,28 @@
+create hris_data_kandidat
+create hris_data_kandidat_detail
+create hris_form
+create hris_form_detail
+create hris_kategori
+create hris_kpi_master_detail
+create hris_kpi_master_header
+create hris_kpi_penilaian
+create hris_kpi_penilaian_detail
+create hris_posisi
+create hris_status_kandidat
+create hris_status_karyawan_baru
+create hris_usulan_karyawan_baru
+create hris_usulan_mutasi
+
+create jabatan_atasan
+create jabatan
+alter karyawan (kolom atasan_nik + tgl_berlaku)
+
+create karyawan_history
+create karyawan_history_unit
+create karyawan_history_wilayah
+
+(sudah ada) wilayah
+(sudah ada) wilayah_karyawan
+(sudah ada) unit_karyawan
+
+
