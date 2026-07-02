@@ -217,32 +217,23 @@ class Karyawan extends Public_Controller
 					kh2.*
 				FROM karyawan_history kh2
 				WHERE kh2.nik = k.nik
+				AND CONVERT(date, kh2.tgl_mulai) <= CONVERT(date, GETDATE())
 				ORDER BY
-					CASE 
-						WHEN kh2.tgl_mulai <= GETDATE() THEN 0
-						WHEN kh2.tgl_selesai IS NOT NULL THEN 1
-						ELSE 2
-					END,
-
-					CASE 
-						WHEN kh2.tgl_mulai <= GETDATE()
-						THEN kh2.tgl_mulai
-					END DESC,
-
-					CASE 
-						WHEN kh2.tgl_selesai IS NOT NULL
-						THEN kh2.tgl_selesai
-					END DESC
+					kh2.tgl_mulai DESC,
+					kh2.id DESC
 			) kh
 
 			LEFT JOIN jabatan j ON kh.jabatan = j.kode
 			LEFT JOIN jabatan j_temp ON k.jabatan = j_temp.kode
 			LEFT JOIN karyawan atasan ON k.atasan_nik = atasan.nik and atasan.status = 1
-			LEFT JOIN karyawan k_now on k.nik = k_now.nik AND k_now.status = 1
+			LEFT JOIN karyawan k_now ON k.nik = k_now.nik AND k_now.status = 1
+					AND (
+							k_now.tgl_berlaku IS NULL
+							OR k_now.tgl_berlaku <= GETDATE()
+					)
 			WHERE k.id IS NOT NULL
-			ORDER BY k.level ASC, ISNULL(j.nama, j_temp.nama) ASC  ";
-
-		// $cetak_r($params, 1);
+			ORDER BY k.level ASC, ISNULL(j.nama, j_temp.nama) ASC  
+		";
 
  		$d_conf     = $m_conf->hydrateRaw( $sql );
         
