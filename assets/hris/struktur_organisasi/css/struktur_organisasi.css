@@ -1,0 +1,469 @@
+.select2-container .select2-selection--single {
+    height: 34px !important;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    padding-top: 5px;
+    font-size: 12px;
+    padding-left: 3px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 34px;
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 34px;
+}
+
+/* =========================================================
+   FILTER PANEL
+========================================================= */
+legend {
+    width: 50%;
+}
+
+.filter-panel {
+    margin-bottom: 20px;
+    border: 1px solid #d9dde3;
+    border-radius: 10px;
+    padding: 18px;
+    background: #fff;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    flex: 1 1 220px;
+}
+
+.filter-item label {
+    margin-bottom: 8px;
+    color: #4a4a4a;
+    font-weight: 600;
+}
+
+.filter-item .select2 {
+    width: 100% !important;
+}
+
+.filter-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 150px;
+    flex: 0 0 auto;
+}
+
+.filter-actions .btn {
+    margin-top: 4px;
+}
+
+/* =========================================================
+   AREA STRUKTUR ORGANISASI
+========================================================= */
+.so-fieldset {
+    position: relative;
+}
+
+.so-area {
+    cursor: grab;
+    overflow: auto;
+    background-color: #fdfcfc;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+    height: 60vh;
+    min-height: 350px;
+    max-height: 900px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+}
+
+.so-area.grabbing {
+    cursor: grabbing;
+}
+
+#wrap {
+    width: max-content;
+    min-width: 100%;
+}
+
+.tree {
+    position: relative;
+    width: max-content;
+    text-align: center;
+    overflow: visible;
+    margin-top: 500px;
+}
+
+.tree.export-pdf li {
+    vertical-align: top !important;
+}
+
+#lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* node yang di-hover */
+.tree .node:hover {
+    background: #c8e4f8;
+    border-color: #8fb8d8;
+}
+
+.tree .node:hover .box {
+    background: #e8f4fc;
+    border-color: #8fb8d8;
+}
+
+/* atasan (rantai sampai root) */
+.tree .node.hl-up {
+    background: #dbeefb;
+    border-color: #a5c9e4;
+}
+
+.tree .node.hl-up .box {
+    background: #e8f4fc;
+    border-color: #a5c9e4;
+}
+
+/* bawahan (anak-cucu) */
+.tree .node.hl-down {
+    background: #eef7fd;
+    border-color: #c2dcee;
+}
+
+.tree .node.hl-down .box {
+    background: #f5fbfe;
+    border-color: #c2dcee;
+}
+
+/* =========================================================
+   NODE KARTU
+========================================================= */
+.node,
+.node * {
+    box-sizing: border-box;
+}
+
+.node {
+    position: absolute;
+    width: var(--node-w, 250px);
+    height: 220px;
+    background: #fdfdfe;
+    border: 1px solid #9fa0a8;
+    border-radius: 6px;
+    padding: 16px 14px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.node .box {
+    border: 1px solid #9fa0a8;
+    border-radius: 4px;
+    padding: 12px 6px;
+    margin-bottom: 24px;
+    background: #fff;
+}
+
+.box .t {
+    font-size: 14px;
+    font-weight: 700;
+    color: #5a5a63;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.box .u {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7c7c85;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.node .role {
+    font-size: 15px;
+    font-weight: 700;
+    color: #6b6b74;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.node .name {
+    margin-top: 7px;
+    font-size: 20px;
+    color: #6b6b74;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+/* =========================================================
+   TOOLBAR: ZOOM + PETUNJUK + SEARCH
+========================================================= */
+.toolbar-area {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    right: 15px;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toolbar-area > * {
+    pointer-events: auto;
+}
+
+/* ✅ DESKTOP: zoom-area sejajar */
+.zoom-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #f0efef;
+    flex-wrap: wrap;
+    flex: 1 1 auto;           /* ✅ zoom-area bisa memanjang di desktop */
+}
+
+/* ✅ tombol zoom bulat — TIDAK mengenai .search-area */
+.zoom-area > div:not(.search-area) {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #b4b4b4;
+    border-radius: 50%;
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+    flex: 0 0 auto;
+}
+
+.zoom-area > div:not(.search-area):hover {
+    cursor: pointer;
+    background-color: #636363;
+    color: #fff;
+}
+
+.zoom-area .btn {
+    margin: 0;
+}
+
+/* ✅ DESKTOP: search area di baris yang sama dengan tombol, mengisi sisa ruang */
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;          /* ✅ di desktop: mengisi sisa ruang */
+    min-width: 220px;
+}
+
+.search-area #soSearch {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+}
+
+.search-area #searchInfo {
+    white-space: nowrap;
+}
+
+.hint-area {
+    max-width: 520px;
+    padding: 13px 14px;
+    border: 1px dashed #d3c98f;
+    border-radius: 5px;
+    background: #fffbe8;
+    font-size: 12px;
+    color: #6b6b74;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET (≤1024px)
+========================================================= */
+@media (max-width: 1024px) {
+    .filter-row { gap: 12px; }
+    .filter-item { min-width: 180px; flex: 1 1 180px; }
+
+    .toolbar-area { top: 50px; gap: 8px; }
+    .hint-area { font-size: 11px; max-width: 420px; }
+
+    .so-area { height: 55vh; }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE (≤768px)
+   ✅ SEARCH TURUN KE BAWAH
+========================================================= */
+@media (max-width: 768px) {
+    .filter-panel { padding: 12px; margin-bottom: 15px; }
+    .filter-row { flex-direction: column; gap: 12px; }
+    .filter-item { min-width: 100%; flex: 1 1 100%; }
+    .filter-actions { min-width: 100%; justify-content: center; }
+    .filter-actions .btn { width: 100%; }
+
+    .toolbar-area {
+        position: static;
+        margin: 10px 0;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .zoom-area {
+        justify-content: center;
+    }
+
+    /* ✅ SEARCH TURUN: full width di bawah tombol */
+    .search-area {
+        flex: 1 1 100%;
+        min-width: 100%;
+        margin-top: 8px;
+    }
+
+    .hint-area { max-width: 100%; text-align: center; }
+
+    .so-area { height: 50vh; min-height: 300px; }
+
+    /* Font node diperbesar agar terbaca */
+    .box .t {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .box .u {
+        font-size: 14px;
+        margin-top: 10px;
+        line-height: 1.25;
+    }
+
+    .node .role {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .node .name {
+        font-size: 20px;
+        margin-top: 6px;
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .node .box {
+        padding: 12px 8px;
+        margin-bottom: 16px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE KECIL (≤480px)
+========================================================= */
+@media (max-width: 480px) {
+    .filter-panel { padding: 10px; }
+
+    .zoom-area { gap: 8px; }
+
+    .zoom-area > div:not(.search-area) {
+        width: 26px;
+        height: 26px;
+    }
+
+    .zoom-area .btn {
+        flex: 1 1 auto;
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    /* ✅ SEARCH tetap turun di mobile kecil */
+    .search-area {
+        flex: 1 1 100%;
+        min-width: 100%;
+        margin-top: 8px;
+        gap: 6px;
+    }
+
+    .hint-area { font-size: 10px; padding: 6px 10px; }
+
+    .so-area { height: 45vh; min-height: 260px; }
+
+    /* Font tetap besar */
+    .box .t { font-size: 15px; }
+    .box .u { font-size: 13px; }
+    .node .role { font-size: 15px; }
+    .node .name { font-size: 18px; }
+
+    .node .box {
+        padding: 10px 6px;
+        margin-bottom: 14px;
+    }
+
+    .node { padding: 14px 10px; }
+}
+
+/* =========================================================
+   RESPONSIVE — LANDSCAPE PENDEK
+========================================================= */
+@media (max-height: 500px) and (orientation: landscape) {
+    .so-area { height: 55vh; min-height: 220px; }
+    .toolbar-area { top: 45px; }
+}
+
+/* =========================================================
+   EXPORT PDF
+========================================================= */
+.tree.export-pdf .node {
+    border: 2px solid #7c7d85 !important;
+}
+
+.tree.export-pdf .node .box {
+    border: 2px solid #9fa0a8 !important;
+}
+
+.tree.export-pdf #lines path {
+    stroke-width: 2.5 !important;
+    stroke: #a8a9b0 !important;
+}
+
+/* =========================================================
+   SEARCH / HIGHLIGHT
+========================================================= */
+.tree.has-search .node.is-match {
+    opacity: 1;
+    box-shadow: 0 0 0 3px #acbcff;
+    z-index: 5;
+}
+
+.tree.has-search .node.is-active {
+    box-shadow: 0 0 0 4px #5a7bff, 0 8px 22px rgba(0, 0, 0, .3);
+    z-index: 6;
+}
+
+.tree.has-search .node.is-active .box {
+    border-color: #acbcff;
+}
+
+.tree .node {
+    transition: opacity .2s ease, filter .2s ease, box-shadow .2s ease;
+}
