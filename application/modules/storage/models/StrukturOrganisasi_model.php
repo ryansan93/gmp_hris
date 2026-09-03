@@ -59,7 +59,7 @@ class StrukturOrganisasi_model extends Conf {
                                 SELECT DISTINCT ', ' + 
                                     CASE 
                                         WHEN uk2.unit = 'all' THEN 'All'
-                                        ELSE w_induk.nama 
+                                        ELSE w_induk.alias 
                                     END
                                 FROM unit_karyawan uk2
                                 LEFT JOIN wilayah w

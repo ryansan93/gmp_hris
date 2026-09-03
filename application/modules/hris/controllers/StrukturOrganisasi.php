@@ -103,7 +103,7 @@ class StrukturOrganisasi extends Public_Controller {
 
     public function treeBuilder($data_so) { 
     // cetak_r($data_so, 1);
-        $flatToTree = function ($items, $parentNik = '') use (&$flatToTree) { 
+            $flatToTree = function ($items, $parentNik = '') use (&$flatToTree) { 
             $branch = []; 
             foreach ($items as $item) { 
                 if ($item['atasan_nik'] == $parentNik) { 
